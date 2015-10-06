@@ -64,20 +64,16 @@ classdef (Abstract) Game < handle
             r = self.tabR(a, self.N);              
         end
         
-        % FILL IN THE FUNCTION BELOW
+        %% FILL IN THE FUNCTION BELOW
         function r = cumulativeRewardBestActionHindsight(self)
             %   Returns the cumulative reward of the best fixed action in 
             %   hindsight
-            r = 0;
             for act = 1:self.nbActions
-                act_i_r = 0;
+                
                 for ind = 1:self.N
-                    act_i_r = act_i_r + self.reward(act);
                 end
-                if(act == 1 || act_i_r > r)
-                    r = act_i_r;
-                end
-            end
+                
+            
         end
         
     end    

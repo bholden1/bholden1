@@ -7,8 +7,9 @@ clear all;
 game = gameConstant();
 
 %% Get a set of policies to try out
-policies = {policyConstant(), policyRandom()};
-policy_names = {'policyConstant', 'policyRandom'};
+policies = {policyGWM()};
+policy_names = {'policyGWM'};
+policy_colors = ['b'];
 
 %% Run the policies on the game
 reward_m = zeros(length(policies),game.totalRounds);
@@ -23,11 +24,12 @@ for k = 1:length(policies)
     action_m(k,:) = action;
     regret_m(k,:) = regret;
 end
+time = 1:game.totalRounds;
 figure(1)
 hold on
 title('Regret');
 for k = 1:length(policies)
-    plot(regret_m(k,:));
+    plot(time,regret_m(k,:),sprintf('%s',policy_colors(k)));
 end
 legend(policy_names);
 hold off
@@ -35,7 +37,7 @@ figure(2)
 hold on
 title('Action');
 for k = 1:length(policies)
-    plot(action_m(k,:));
+    plot(time,action_m(k,:),sprintf('%s',policy_colors(k)));
 end
 legend(policy_names);
 hold off

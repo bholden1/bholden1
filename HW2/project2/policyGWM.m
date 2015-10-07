@@ -6,6 +6,7 @@ classdef policyGWM < Policy
         % Add more member variables as needed
         weights % weights for the bandit actions
         t % track the step number for eta updates
+        lastAction % last action taken
     end
     
     methods
@@ -20,8 +21,23 @@ classdef policyGWM < Policy
         end
         
         function action = decision(self)
+            % Create the distribution
+            normWeights = self.weights./sqrt(sum(self.weights.^2));
+            pdf = zeros(1,self.nbActions);
+            for i = 1:self.nbActions
+                for j = 1:i
+                    pdf(1,i) = pdf(1,i) + normWeights(j);
+                end
+            end
+            % Sample from the distribution
+            sample = rand;
             % Choose an action according to multinomial distribution
-
+            for i = self.nbActions:-1:1
+                if(sample <= pdf(1,i))
+                    action = i;
+                end
+            end
+            self.lastAction = action;
         end
         
         function getReward(self, reward)

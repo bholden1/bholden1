@@ -4,18 +4,19 @@ close;
 clear all;
 
 %% Get the constant game
-game = gameConstant();
+game = gameGaussian(10,10000);
 
 %% Get a set of policies to try out
-policies = {policyGWM()};
-policy_names = {'policyGWM'};
-policy_colors = ['b'];
+policies = {policyEXP3()};
+policy_names = {'policyEXP3'};
+policy_colors = {'b'};
 
 %% Run the policies on the game
 reward_m = zeros(length(policies),game.totalRounds);
 action_m = zeros(length(policies),game.totalRounds);
 regret_m = zeros(length(policies),game.totalRounds);
 for k = 1:length(policies)
+    fprintf('Start %s\n',policy_names{k});
     policy = policies{k};
     game.resetGame();
     [reward, action, regret] = game.play(policy);
@@ -29,7 +30,7 @@ figure(1)
 hold on
 title('Regret');
 for k = 1:length(policies)
-    plot(time,regret_m(k,:),sprintf('%s',policy_colors(k)));
+    plot(time,regret_m(k,:),sprintf('%s',policy_colors{k}));
 end
 legend(policy_names);
 hold off
@@ -37,7 +38,7 @@ figure(2)
 hold on
 title('Action');
 for k = 1:length(policies)
-    plot(time,action_m(k,:),sprintf('%s',policy_colors(k)));
+    plot(time,action_m(k,:),sprintf('%s',policy_colors{k}));
 end
 legend(policy_names);
 hold off

@@ -19,7 +19,8 @@ classdef (Abstract) Game < handle
         nbActions   % number of actions
         totalRounds % number of rounds of the game
         tabR        % table of rewards (nbActions x totalRounds)
-        N           % counter for the current round of the game 
+        N           % counter for the current round of the game
+        rActions    % reward so far for each action
     end
     
     % Member functions of this class
@@ -38,6 +39,7 @@ classdef (Abstract) Game < handle
             %       regret: Regret of the policy (1xtotalRounds)
             
             policy.init(self.nbActions);            % Initialize the policy
+            self.rActions = zeros(self.nbActions,1); % No rewards yet
             
             % Initialize rewards, actions, regret to 0
             reward = zeros(1, self.totalRounds);    
@@ -46,6 +48,7 @@ classdef (Abstract) Game < handle
             
             % Play the game
             for t = 1:self.totalRounds
+                fprintf('Round Number %i\n',t);
                 self.N = self.N + 1; % Update the current round counter
                 action(t) = policy.decision(); % Get action from policy
                 reward(t) = self.reward(action(t)); % Get reward for policy
@@ -68,16 +71,8 @@ classdef (Abstract) Game < handle
         function r = cumulativeRewardBestActionHindsight(self)
             %   Returns the cumulative reward of the best fixed action in 
             %   hindsight
-            r = 0;
-            for act = 1:self.nbActions
-                act_i_r = 0;
-                for ind = 1:self.N
-                    act_i_r = act_i_r + self.reward(act);
-                end
-                if(act == 1 || act_i_r > r)
-                    r = act_i_r;
-                end
-            end
+            self.rActions = self.rActions + self.tabR(:,self.N);
+            r = max(self.rActions);
         end
         
     end    

@@ -17,12 +17,11 @@ classdef policyGWM < Policy
             self.weights = ones(1,nbActions);
             self.t = 1;
             % Initialize other variables as needed
-
         end
         
         function action = decision(self)
             % Create the distribution
-            normWeights = self.weights./sqrt(sum(self.weights.^2));
+            normWeights = self.weights./sum(self.weights);
             pdf = zeros(1,self.nbActions);
             for i = 1:self.nbActions
                 for j = 1:i
@@ -42,7 +41,7 @@ classdef policyGWM < Policy
         
         function getReward(self, reward)
             % Update the weights
-            eta = sqrt(log10(self.nbActions)/self.t);
+            eta = sqrt(log(self.nbActions)/self.t);
             self.t = self.t + 1;
             % First we create the loss vector for GWM
             lossScalar = 1 - reward; % This is loss of the chosen action

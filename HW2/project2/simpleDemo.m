@@ -4,11 +4,12 @@ close;
 clear all;
 
 %% Get the constant game
-game = gameGaussian(10,10000);
+game = gameGaussian(10,100);
+% game = gameConstant();
 
 %% Get a set of policies to try out
-policies = {policyEXP3()};
-policy_names = {'policyEXP3'};
+policies = {policyUCB()};
+policy_names = {'policyUCB'};
 policy_colors = {'b'};
 
 %% Run the policies on the game

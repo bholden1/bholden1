@@ -5,6 +5,9 @@ classdef gameAdversarial<Game
     methods
         
         function self = gameAdversarial()
+            self.nbActions = 2;
+            self.totalRounds = 1000;
+            self.N = 0; % the current round counter is initialized to 0
         end
         
     end    

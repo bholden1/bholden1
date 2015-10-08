@@ -4,13 +4,15 @@ close;
 clear all;
 
 %% Get the constant game
-game = gameGaussian(10,100);
+% game = gameGaussian(10,10000);
 % game = gameConstant();
+% game = gameAdversarial();
+game = gameLookupTable('data/plannerPerformance.mat',1);
 
 %% Get a set of policies to try out
-policies = {policyUCB()};
-policy_names = {'policyUCB'};
-policy_colors = {'b'};
+policies = {policyUCB(), policyEXP3()};
+policy_names = {'policyUCB', 'policyEXP3'};
+policy_colors = {'b', 'g'};
 
 %% Run the policies on the game
 reward_m = zeros(length(policies),game.totalRounds);

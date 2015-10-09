@@ -283,8 +283,8 @@ See code for implementation
 
 \begin_layout Standard
 This shows that the changes from GWM to EXP3 make it no-regret.
- EXP3 works by scaling the weights by the probability that they were going
- to be chosen.
+ EXP3 works by scaling the weight of the action chosen by the probability
+ that they were going to be chosen.
  This keeps the lack of information from ruining the prediction in the constant
  game.
 \end_layout
@@ -313,7 +313,7 @@ See code for implementation
 
 \begin_layout Standard
 The regret is more because the game is not constant and now has a gaussian
- distribution, which EXP3 doesn't know.
+ distribution, which EXP3 doesn't know, but still levels out.
 \end_layout
 
 \begin_layout Standard

@@ -5,15 +5,15 @@ close all;
 clear all;
 
 %% Get the constant game
-% game = gameGaussian(10,1000);
+% game = gameGaussian(10,10000);
 % game = gameConstant();
 % game = gameAdversarial();
 % game = gameLookupTable('data/univLatencies.mat',1);
 game = gameLookupTable('data/plannerPerformance.mat',1);
 
 %% Get a set of policies to try out
-policies = {policyUCB(), policyEXP3()};
-policy_names = {'policyUCB', 'policyEXP3'};
+policies = {policyEXP3(), policyUCB()};
+policy_names = {'policyEXP3', 'policyUCB'};
 policy_colors = {'b', 'g'};
 
 %% Run the policies on the game

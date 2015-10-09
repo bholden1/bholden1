@@ -91,11 +91,437 @@ Robotics 831, Homework #2
 \end_layout
 
 \begin_layout Standard
-2.1) Notation
+2.3.1) Fill in function cumulativeRewardBestActionHindsight
 \end_layout
 
 \begin_layout Standard
+See code folder
+\end_layout
 
+\begin_layout Standard
+2.5) policyConstant and policyRandom on gameConstant
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 2_5_regret.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 2_5_action.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Random picks each action with an even distribution and Constant picks one
+ and stays with it.
+ So constant has a regret of 600 or 200 depending on the choice.
+ Random has a regret of approximately the average of those two, or 300.
+ These graphs support this.
+\end_layout
+
+\begin_layout Standard
+3) EXP3
+\end_layout
+
+\begin_layout Standard
+3.1.1) policyGWM on gameConstant
+\end_layout
+
+\begin_layout Standard
+See code for implementation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 3_1_1_regret.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 3_1_1_action.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+GWM is no longer no-regret! This is because full information is not given
+ to the policy only the loss of the selected action.
+ This means that every action not selected is treated as if it had 0 loss
+ even when it could have led to a loss of 1.
+\end_layout
+
+\begin_layout Standard
+3.1.2) Derive the regret bound for GWM in the bandit setting
+\end_layout
+
+\begin_layout Standard
+Potential Function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Upper Bound:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lower Bound:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Combine:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.1.3) Show that 
+\begin_inset Formula $\sum_{t=1}^{T}\tilde{l_{n}^{t}}$
+\end_inset
+
+ is an unbiased estimator of 
+\begin_inset Formula $\sum_{t=1}^{T}l_{n}^{t}$
+\end_inset
+
+ for any action 
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Blah
+\end_layout
+
+\begin_layout Standard
+3.2.1) policyEXP3 on gameConstant
+\end_layout
+
+\begin_layout Standard
+See code for implementation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 3_2_1_regret.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 3_2_1_action.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This shows that the changes from GWM to EXP3 make it no-regret.
+ EXP3 works by scaling the weights by the probability that they were going
+ to be chosen.
+ This keeps the lack of information from ruining the prediction in the constant
+ game.
+\end_layout
+
+\begin_layout Standard
+3.3.1) Implement gameGaussian
+\end_layout
+
+\begin_layout Standard
+See code for implementation
+\end_layout
+
+\begin_layout Standard
+3.3.2) policyEXP3 on gameGaussian
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 3_3_2_regret.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The regret is more because the game is not constant and now has a gaussian
+ distribution, which EXP3 doesn't know.
+\end_layout
+
+\begin_layout Standard
+3.4.1) Derive the varience of the estimator 
+\begin_inset Formula $\sum_{t=1}^{T}\tilde{l_{n}^{t}}$
+\end_inset
+
+.
+ Is the variance bounded?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Var(X)=E[X^{2}]-\left(E[X]\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The variance is not bounded.
+\end_layout
+
+\begin_layout Standard
+4) Upper Confidence Bound (UCB) Algorithm
+\end_layout
+
+\begin_layout Standard
+4.2.1) Show that the upper bound of the mean is the following with probability
+ at least 
+\begin_inset Formula $1-\delta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mu\le\sum_{i=1}^{m}X_{i}+\sqrt{\frac{\log\left(\delta^{-1}\right)}{2m}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.2.2) Show that the upper bound of the mean reward for an action 
+\begin_inset Formula $n$
+\end_inset
+
+ is the following
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mu_{n}^{t}\le\hat{\mu}_{n}^{t}+\sqrt{\frac{\log t}{2C_{n}^{t}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.3.1) policyUCB on gameConstant
+\end_layout
+
+\begin_layout Standard
+see code for implementation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 4_3_1_regret.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 4_3_1_action.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 4_3_1_UC.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+UCB builds the confidence it has in each of the actions and chooses the
+ action, which has the greatest estimated mean.
+ Then based off the reward it updates the predicted mean for that particular
+ action.
+\end_layout
+
+\begin_layout Standard
+4.4.1) policyUCB and policyEXP3 on gameGaussian
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 4_4_1_regret.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+EXP3 performs better in this case because UCB has an exploration portion
+ of it, which can build more regret than the performance of the weights
+ in EXP3.
+\end_layout
+
+\begin_layout Standard
+4.5.1) policyUCB and policyEXP3 on gameAdversarial
+\end_layout
+
+\begin_layout Standard
+See code for implementation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 4_5_1_regret.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this Adversarial case EXP3 maintains no-regret, but UCB does better because
+ it switches off between actions and actually follows the Adversarial choices
+ very well giving it negative regret.
+\end_layout
+
+\begin_layout Standard
+5) Real Datasets
+\end_layout
+
+\begin_layout Standard
+5.1.1) Implement gameLookupTable
+\end_layout
+
+\begin_layout Standard
+See code for implementation
+\end_layout
+
+\begin_layout Standard
+5.2.1) policyUCB and policyEXP3 on gameLookupTable(univLatencies)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 5_2_1_regret.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+UCB does about as well as EXP3 because they each have so many actions and
+ the time is too short for them to learn how to properly pick an action.
+ It is important to note that UCB appears to be about to start gaining regret
+ at a slower rate, while EXP3 is keeping a similar slope.
+\end_layout
+
+\begin_layout Standard
+5.3.1) policyUCB and policyEXP3 on gameLookupTable(plannerPerformance)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 5_3_1_regret.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This graph has a similar result as the one in 5.2.1, because of similar properties
+ such as high ratio of number of actions to the total rounds in the game.
 \end_layout
 
 \end_body

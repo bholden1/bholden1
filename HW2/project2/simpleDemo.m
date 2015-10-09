@@ -1,12 +1,14 @@
 %% This script applies a random policy on a constant game
 clc;
-close; 
+close;
+close all;
 clear all;
 
 %% Get the constant game
-% game = gameGaussian(10,10000);
+% game = gameGaussian(10,1000);
 % game = gameConstant();
 % game = gameAdversarial();
+% game = gameLookupTable('data/univLatencies.mat',1);
 game = gameLookupTable('data/plannerPerformance.mat',1);
 
 %% Get a set of policies to try out

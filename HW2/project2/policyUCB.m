@@ -7,11 +7,11 @@ classdef policyUCB < Policy
         % Define member variables
         nbActions % number of bandit actions
         % Add more member variables as needed
-        weights % weights for the bandit actions
         s % action total reward so far
         c % action counter
         t % track the step number
         lastAction % last action taken
+        conf
     end
     
     methods
@@ -21,9 +21,19 @@ classdef policyUCB < Policy
             self.t = 1;
             self.s = zeros(1,nbActions);
             self.c = zeros(1,nbActions);
+%             self.conf = zeros(1,nbActions);
         end
         
         function action = decision(self)
+            % Save the confidence for a plot
+            conft = zeros(1,self.nbActions);
+            for i = 1:self.nbActions
+                conft(i) = 0;
+                if(self.c(i) ~= 0)
+                    conft(i) = self.s(i)/self.c(i) + sqrt(log(self.t)/(2*self.c(i)));
+                end
+            end
+            self.conf = [self.conf;conft];
             % Choose action
             for i = 1:self.nbActions
                 if(self.c(i) == 0)
@@ -40,6 +50,7 @@ classdef policyUCB < Policy
             % Update ucb
             self.s(self.lastAction) = self.s(self.lastAction) + reward;
             self.c(self.lastAction) = self.c(self.lastAction) + 1;
+            self.t = self.t + 1;
         end        
     end
 

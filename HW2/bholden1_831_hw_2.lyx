@@ -250,7 +250,97 @@ Combine:
 \end_layout
 
 \begin_layout Standard
-Blah
+Prove
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left[\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right]=E\left[\sum_{t=1}^{T}l_{n}^{t}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Linear expectation can distribute the expectation 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left[\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right]=\sum_{t=1}^{T}E\left[\tilde{l_{n}^{t}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the law of total expectation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{t=1}^{T}E\left[\tilde{l_{n}^{t}}\right]=\sum_{t=1}^{T}E\left[E\left[\tilde{l_{n}^{t}}|p_{n}^{t}\right]\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By definition of 
+\begin_inset Formula $\tilde{l_{n}^{t}}=\frac{l_{n}^{t}}{p_{n}^{t}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left[\tilde{l_{n}^{t}}|p_{n}^{t}\right]=p_{n}^{t}\frac{l_{n}^{t}}{p_{n}^{t}}=l_{n}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Plugging in the result from above
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{t=1}^{T}E\left[E\left[\tilde{l_{n}^{t}}|p_{n}^{t}\right]\right]=\sum_{t=1}^{T}E\left[l_{n}^{t}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Redistributing the expectation proves the equality
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{t=1}^{T}E\left[l_{n}^{t}\right]=E\left[\sum_{t=1}^{T}l_{n}^{t}\right]
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -328,7 +418,81 @@ The regret is more because the game is not constant and now has a gaussian
 \begin_layout Standard
 \begin_inset Formula 
 \[
-Var(X)=E[X^{2}]-\left(E[X]\right)^{2}
+Var(X)=E\left[X^{2}\right]-\left(E\left[X\right]\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Definition of variance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Var\left(\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right)=E\left[\left(\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right)^{2}\right]-\left(E\left[\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right]\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From 3.1.3) above
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left[\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right]=\sum_{t=1}^{T}l_{n}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left[\left(\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right)^{2}\right]=\left(\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right)\left(\sum_{t=1}^{T}\tilde{l_{n}^{t}}p_{n}^{t}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E\left[\left(\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right)^{2}\right]=\left(\sum_{t=1}^{T}\frac{l_{n}^{t}}{p_{n}^{t}}\right)\left(\sum_{t=1}^{T}l_{n}^{t}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Var\left(\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right)=\left(\sum_{t=1}^{T}\frac{l_{n}^{t}}{p_{n}^{t}}\right)\left(\sum_{t=1}^{T}l_{n}^{t}\right)-\left(\sum_{t=1}^{T}l_{n}^{t}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Var\left(\sum_{t=1}^{T}\tilde{l_{n}^{t}}\right)=\left(\sum_{t=1}^{T}l_{n}^{t}\right)\left(\left(\sum_{t=1}^{T}\frac{l_{n}^{t}}{p_{n}^{t}}\right)-\left(\sum_{t=1}^{T}l_{n}^{t}\right)\right)
 \]
 
 \end_inset
@@ -338,6 +502,7 @@ Var(X)=E[X^{2}]-\left(E[X]\right)^{2}
 
 \begin_layout Standard
 The variance is not bounded.
+ It will be very large if the probability is small.
 \end_layout
 
 \begin_layout Standard
@@ -365,6 +530,169 @@ The variance is not bounded.
 \end_layout
 
 \begin_layout Standard
+By definition of the sampled mean
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{\mu}=\sum_{i=1}^{m}X_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rearranging the initial equation
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\mu-\hat{\mu}\le\sqrt{\frac{\log\left(\delta^{-1}\right)}{2m}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using Hoeffding's inequality
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P(\mu-\hat{\mu}\ge\epsilon)\le e^{-2m\epsilon^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Plugging in the desired probability 
+\begin_inset Formula $1-\delta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta\ge e^{-2m\epsilon^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algebra
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\epsilon\le\sqrt{\frac{-\log\delta}{2m}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Property of logarithms
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\epsilon\le\sqrt{\frac{\log\delta^{-1}}{2m}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In terms of probability
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+P\left(\epsilon\le\sqrt{\frac{\log\delta^{-1}}{2m}}\right)=\delta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Property of probability
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P\left(\epsilon>\sqrt{\frac{\log\delta^{-1}}{2m}}\right)=1-\delta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Plugging in
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P\left(\mu-\hat{\mu}\ge\epsilon>\sqrt{\frac{\log\delta^{-1}}{2m}}\right)=1-\delta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 4.2.2) Show that the upper bound of the mean reward for an action 
 \begin_inset Formula $n$
 \end_inset
@@ -381,6 +709,90 @@ The variance is not bounded.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+By definition of 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t=\delta^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By definition of 
+\begin_inset Formula $C_{n}^{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{n}^{t}=m
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the same steps as above in 4.2.1) combined with definition of 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P\left(\mu-\hat{\mu}\ge\sqrt{\frac{\log t}{2C_{n}^{t}}}\right)=1-\frac{1}{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For large 
+\begin_inset Formula $t$
+\end_inset
+
+ this gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P\left(\mu-\hat{\mu}\ge\sqrt{\frac{\log t}{2C_{n}^{t}}}\right)\approx1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So it is the upper bounds when 
+\begin_inset Formula $t$
+\end_inset
+
+ gets large
 \end_layout
 
 \begin_layout Standard

@@ -44,7 +44,7 @@ classdef policyEXP3 < Policy
             % Update the weights
             eta = sqrt(log(self.nbActions)/(self.t*self.nbActions));
             self.t = self.t + 1;
-            % First we create the loss vector for GWM
+            % First we create the loss vector for EXP3
             lossScalar = 1 - reward; % This is loss of the chosen action
             normScalar = self.weights(self.lastAction)/sum(self.weights);
             lossScaled = lossScalar/normScalar;

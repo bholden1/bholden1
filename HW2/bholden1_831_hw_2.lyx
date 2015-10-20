@@ -180,7 +180,7 @@ Potential Function:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Phi^{(t+1)}=
+\Phi^{(t+1)}=\log\left(\sum_{n=1}^{N}w_{n}^{t+1}\right)
 \]
 
 \end_inset
@@ -195,7 +195,126 @@ Upper Bound:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Phi^{(t+1)}=
+\Phi^{(t+1)}=\log\left(\sum_{n=1}^{N}w_{n}^{t}e^{-\eta l_{n}^{t}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}=\log\left(\sum_{i=1}^{N}w_{i}^{t}\sum_{n=1}^{N}\frac{w_{n}^{t}}{\sum_{i=1}^{N}w_{i}^{t}}e^{-\eta l_{n}^{t}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}=\log\left(\sum_{i=1}^{N}w_{i}^{t}\right)+\log\left(\sum_{n=1}^{N}\frac{w_{n}^{t}}{\sum_{i=1}^{N}w_{i}^{t}}e^{-\eta l_{n}^{t}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}=\Phi^{t}+\log\left(\sum_{n=1}^{N}p_{n}^{t}e^{-\eta l_{n}^{t}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset Formula $e^{-\eta x}\le1+\left(e^{-\eta}-1\right)x,\ x\in[0,1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}\le\Phi^{t}+\log\left(\sum_{n=1}^{N}p_{n}^{t}\left(1+\left(e^{-\eta}-1\right)l_{n}^{t}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}\le\Phi^{t}+\log\left(\sum_{n=1}^{N}p_{n}^{t}+\sum_{n=1}^{N}\left(e^{-\eta}-1\right)l_{n}^{t}p_{n}^{t}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}\le\Phi^{t}+\log\left(1+\sum_{n=1}^{N}\left(e^{-\eta}-1\right)l_{n}^{t}p_{n}^{t}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset Formula $\log(1-x)\le-x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{(t+1)}\le\Phi^{t}-\left(1-e^{-\eta}\right)\sum_{n=1}^{N}l_{n}^{t}p_{n}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Telescoping:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{T+1}\le\Phi^{1}-\left(1-e^{-\eta}\right)\sum_{t=1}^{T}\sum_{n=1}^{N}l_{n}^{t}p_{n}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{T+1}\le\log N-\left(1-e^{-\eta}\right)\sum_{t=1}^{T}\mathbb{E}_{a^{t}\sim p_{n}^{t}}l_{a^{t}}^{t}
 \]
 
 \end_inset
@@ -210,7 +329,40 @@ Lower Bound:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Phi^{(t+1)}=
+\Phi^{T+1}=\log\left(\sum_{n=1}^{N}w_{n}^{t+1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{T+1}\ge\log\left(w_{n^{*}}^{t+1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{T+1}\ge\log\left(e^{-\eta\sum_{t=1}^{T}l_{n^{*}}^{t}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi^{T+1}\ge-\eta\sum_{t=1}^{T}l_{n^{*}}^{t}
 \]
 
 \end_inset
@@ -225,12 +377,152 @@ Combine:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Phi^{(t+1)}=
+-\eta\sum_{t=1}^{T}l_{n^{*}}^{t}\le\log N-\left(1-e^{-\eta}\right)\sum_{t=1}^{T}\mathbb{E}_{a^{t}\sim p_{n}^{t}}l_{a^{t}}^{t}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{t=1}^{T}\mathbb{E}_{a^{t}\sim p_{n}^{t}}l_{a^{t}}^{t}\le\frac{\eta}{1-e^{-\eta}}\sum_{t=1}^{T}l_{n^{*}}^{t}+\frac{\log N}{1-e^{-\eta}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset Formula $\frac{1}{1-e^{-\eta}}\le\frac{1+\eta}{\eta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{t=1}^{T}\mathbb{E}_{a^{t}\sim p_{n}^{t}}l_{a^{t}}^{t}\le\left(1+\eta\right)\sum_{t=1}^{T}l_{n^{*}}^{t}+\frac{2\log N}{\eta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Regret:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R^{T}=\sum_{t=1}^{T}\mathbb{E}_{a^{t}\sim p_{n}^{t}}l_{a^{t}}^{t}-\min_{i=1,...,N}\sum_{t=1}^{T}l_{i}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+R^{T}=\left(1+\eta\right)\sum_{t=1}^{T}l_{n^{*}}^{t}+\frac{2\log N}{\eta}-\sum_{t=1}^{T}l_{n^{*}}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R^{T}=\eta\sum_{t=1}^{T}l_{n^{*}}^{t}+\frac{2\log N}{\eta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R^{T}\le\frac{2\log N}{\eta}+\eta\sum_{t=1}^{T}\sum_{n=1}^{N}l_{n^{*}}^{t}p_{n^{*}}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R^{T}\le\frac{2\log N}{\eta}+\eta\sum_{t=1}^{T}\sum_{n=1}^{N}l_{n^{*}}^{t}p_{n^{*}}^{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{E}\left[R^{T}\right]\in O\left(\eta T^{2}+\frac{1}{\eta}\log N\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So there is no magnitude of 
+\begin_inset Formula $\eta$
+\end_inset
+
+, which makes this less the 
+\begin_inset Formula $O(T)$
+\end_inset
+
+ so no-regret is not possible.
+ In the code 
+\begin_inset Formula $\eta=O\left(\sqrt{\frac{\log N}{t}}\right)$
+\end_inset
+
+ is used giving:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{E}_{bandit}\left[R^{T}\right]=O\left(T\sqrt{NT}+\sqrt{T}\right)
+\]
+
+\end_inset
+
+ So GWM will not work in the bandit setting.
 \end_layout
 
 \begin_layout Standard

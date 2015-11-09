@@ -1,0 +1,2563 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+Ben Holden
+\end_layout
+
+\begin_layout Standard
+\align center
+Robotics 831, Homework #3
+\end_layout
+
+\begin_layout Standard
+\align center
+11/09/2015
+\end_layout
+
+\begin_layout Standard
+1.) List Prediction
+\end_layout
+
+\begin_layout Standard
+1.2) Theory Questions
+\end_layout
+
+\begin_layout Standard
+1.2.1) Monotone Submodularity
+\end_layout
+
+\begin_layout Standard
+Multiple Guess:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L;T)=\min(1,\left|L\cap T\right|)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+T is a subset of S
+\end_layout
+
+\begin_layout Standard
+T is the set of all good candidates
+\end_layout
+
+\begin_layout Standard
+L is the set of selected candidates
+\end_layout
+
+\begin_layout Standard
+If L has no overlap with T then no good candidates have been selected and
+ f returns 0, else 1
+\end_layout
+
+\begin_layout Standard
+Monotone:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L_{1})\le f(L_{1}\oplus L_{2})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f(L_{2})\le f(L_{2}\oplus L_{1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4 Cases:
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ be in set 
+\begin_inset Formula $T$
+\end_inset
+
+ be shown as 
+\begin_inset Formula $L_{1}=1$
+\end_inset
+
+, else 
+\begin_inset Formula $L_{1}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ be in set 
+\begin_inset Formula $T$
+\end_inset
+
+ be shown as 
+\begin_inset Formula $L_{2}=1$
+\end_inset
+
+, else 
+\begin_inset Formula $L_{2}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f(L_{1})\le f(L_{1}\oplus L_{2})$
+\end_inset
+
+ be A
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f(L_{2})\le f(L_{2}\oplus L_{1})$
+\end_inset
+
+ be B
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="8">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $f(L_{1})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f(L_{2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f(L_{1}\oplus L_{2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f(L_{2}\oplus L_{1})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A and B are always 1, proving it is Monotone.
+\end_layout
+
+\begin_layout Standard
+Submodularity:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+b(s|L_{1})\ge b(s|L_{1}\oplus L_{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+b(s|L)=f(L\oplus s)-f(L)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Prove:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L_{1}\oplus s)-f(L_{1})\ge f(L_{1}\oplus L_{2}\oplus s)-f(L_{1}\oplus L_{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eight Cases:
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $s$
+\end_inset
+
+ be in set 
+\begin_inset Formula $T$
+\end_inset
+
+ be shown as 
+\begin_inset Formula $s=1$
+\end_inset
+
+, else 
+\begin_inset Formula $s=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $L_{1}$
+\end_inset
+
+ be in set 
+\begin_inset Formula $T$
+\end_inset
+
+ be shown as 
+\begin_inset Formula $L_{1}=1$
+\end_inset
+
+, else 
+\begin_inset Formula $L_{1}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ be in set 
+\begin_inset Formula $T$
+\end_inset
+
+ be shown as 
+\begin_inset Formula $L_{2}=1$
+\end_inset
+
+, else 
+\begin_inset Formula $L_{2}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f(L_{1}\oplus s)-f(L_{1})$
+\end_inset
+
+ be A
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f(L_{1}\oplus L_{2}\oplus s)-f(L_{1}\oplus L_{2})$
+\end_inset
+
+ be B
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f(L_{1}\oplus s)-f(L_{1})\ge f(L_{1}\oplus L_{2}\oplus s)-f(L_{1}\oplus L_{2})$
+\end_inset
+
+ be C
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="10">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $L_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $f(L_{1})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $f(L_{1}\oplus s)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $f(L_{1}\oplus L_{2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+D
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $f(L_{1}\oplus L_{2}\oplus s)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+C
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+G is always 1 so:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L_{1}\oplus s)-f(L_{1})\ge f(L_{1}\oplus L_{2}\oplus s)-f(L_{1}\oplus L_{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is always true, proving the submodularity
+\end_layout
+
+\begin_layout Standard
+1.2.2) Greedy Guarantee
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L_{i+1}^{G}=L_{i}^{G}\oplus\arg\max_{s\epsilon S}b\left(s|L_{i}^{G}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Step 1: Prove:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangle_{i}\le\sum_{j=1}^{k}\left\{ f\left(L_{i-1}^{G}\oplus l_{j}^{*}\right)-f\left(L_{i-1}^{G}\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangle_{i}=f(L^{*})-f(L_{i-1}^{G})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proof:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L^{*}\oplus L_{i-1}^{G})=f(L^{*}\oplus L_{i-1}^{G})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L^{*}\oplus L_{i-1}^{G})=f(L^{*}\oplus L_{i-1}^{G})+f(L_{i-1}^{G}\oplus\{l_{1}^{*},...,l_{k-1}^{*}\})-f(L_{i-1}^{G}\oplus\{l_{1}^{*},...,l_{k-1}^{*}\})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L^{*}\oplus L_{i-1}^{G})-f(l_{i-1}^{G})=\sum_{j=1}^{k}\left(f(L_{i-1}^{G}\oplus\{l_{1}^{*},...,l_{j}^{*}\})-f(L_{i-1}^{G}\oplus\{l_{1}^{*},...,l_{j-1}^{*}\})\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By submodularity:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+f(L^{*}\oplus L_{i-1}^{G})-f(l_{i-1}^{G})=\sum_{j=1}^{k}\left\{ f\left(L_{i-1}^{G}\oplus l_{j}^{*}\right)-f\left(L_{i-1}^{G}\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By monotonicity:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L^{*})\le f(L^{*}\oplus L_{i-1}^{G})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+f(L^{*})-f(l_{i-1}^{G})\le\sum_{j=1}^{k}\left\{ f\left(L_{i-1}^{G}\oplus l_{j}^{*}\right)-f\left(L_{i-1}^{G}\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By definition of 
+\begin_inset Formula $\triangle_{i}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\triangle_{i}\le\sum_{j=1}^{k}\left\{ f\left(L_{i-1}^{G}\oplus l_{j}^{*}\right)-f\left(L_{i-1}^{G}\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Step 2: Prove:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangle_{i+1}\le\left(1-1/k\right)\triangle_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proof:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L^{*})-f(l_{i-1}^{G})\le\sum_{j=1}^{k}\left\{ f\left(L_{i-1}^{G}\oplus l_{j}^{*}\right)-f\left(L_{i-1}^{G}\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Chosen greedily so at most:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\sum_{j=1}^{k}\left\{ f\left(L_{i-1}^{G}\oplus l_{j}^{*}\right)-f\left(L_{i-1}^{G}\right)\right\} =k\left(f(L_{i}^{G})-f(L_{i-1}^{G})\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+f(L^{*})-f(l_{i-1}^{G})\le k\left(f(L_{i}^{G})-f(L_{i-1}^{G})\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rearranged:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L^{*})-f(l_{i}^{G})\le\left(1-1/k\right)\left(f(L^{*})-f(l_{i-1}^{G})\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substitute for 
+\begin_inset Formula $\triangle_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\triangle_{i+1}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangle_{i+1}\le\left(1-1/k\right)\triangle_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Step 3: Prove:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L^{G})\ge(1-1/e)f(L^{*})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangle_{1}=f(L^{*})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangle_{k+1}=f(L^{*})-f(L^{G})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(1-1/n)^{n}\le1/e
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proof:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangle_{i+1}\le\left(1-1/k\right)\triangle_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using induction:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangle_{i+1}\le\left(1-1/k\right)^{i}\triangle_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $i=k$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangle_{k+1}\le\left(1/e\right)\triangle_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Plug in for 
+\begin_inset Formula $\triangle_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\triangle_{k+1}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(L^{*})-f(L^{G})\le\left(1-1/k\right)f(L^{*})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rearrage/algebra:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\boxed{f(L^{G})\ge(1-1/e)f(L^{*})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.3) Coding
+\end_layout
+
+\begin_layout Standard
+1.3.2) Naive Prediction Strategy
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename list_prediction/avg_train_1_3_2.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename list_prediction/avg_test_1_3_2.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using SVM to learn the data resulted with a 33.30% misclassification error.
+ The learner does ok with just one element and as the list grows, the success
+ rate goes up peaking at around 95%.
+\end_layout
+
+\begin_layout Standard
+1.3.3) List Prediction Strategy
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename list_prediction/avg_train_1_3_3.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename list_prediction/avg_test_1_3_3.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These results show that by adding diversity to the choices this gives a
+ lot of benefit for each item added to the list.
+ So as k grows in size the average success rate increases by about the same
+ amount as the last time an item was added.
+ This will eventually fall off with enough items because the utility of
+ adding another item will eventually be 0 or close to 0.
+\end_layout
+
+\begin_layout Standard
+2.) Online Support Vector Machines
+\end_layout
+
+\begin_layout Standard
+2.2) Derivation
+\end_layout
+
+\begin_layout Standard
+2.2.1) Prove EQ2 and EQ3 are equivalent
+\end_layout
+
+\begin_layout Standard
+EQ2:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\min_{w,\xi}\frac{\lambda}{2}\left\Vert w\right\Vert ^{2}+\sum_{i=1}^{T}\xi_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\xi_{i}\ge0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{i}w^{T}f_{i}\ge1-\xi_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+EQ3:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\min_{w}\frac{\lambda}{2}\left\Vert w\right\Vert ^{2}+\sum_{i=1}^{T}\max(0,1-y_{i}w^{T}f_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proof:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\xi_{i}\ge1-y_{i}w^{T}f_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\xi_{i}\ge0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\xi_{i}=\max(0,1-y_{i}w^{T}f_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Plugging in:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\min_{w,\xi}\frac{\lambda}{2}\left\Vert w\right\Vert ^{2}+\sum_{i=1}^{T}\xi_{i}=\min_{w}\frac{\lambda}{2}\left\Vert w\right\Vert ^{2}+\sum_{i=1}^{T}\max(0,1-y_{i}w^{T}f_{i})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.2.2) Prove EQ4 is a Convex Optimization Problem
+\end_layout
+
+\begin_layout Standard
+EQ4:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\min_{w}\sum_{i=1}^{T}\frac{\lambda}{2T}\left\Vert w\right\Vert ^{2}+\max(0,1-y_{i}w^{T}f_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $\frac{\lambda}{2T}\left\Vert w\right\Vert ^{2}$
+\end_inset
+
+ is convex, 
+\begin_inset Formula $\max(0,1-y_{i}w^{T}f_{i})$
+\end_inset
+
+ is affine, and the sum of a convex function and an affine function is convex.
+ 
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\frac{\lambda}{2T}\left\Vert w\right\Vert ^{2}+\max(0,1-y_{i}w^{T}f_{i})$
+\end_inset
+
+ is convex for every 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ The sum of a convex function with another convex function is also convex.
+ 
+\end_layout
+
+\begin_layout Standard
+This means 
+\begin_inset Formula $\sum_{i=1}^{T}\frac{\lambda}{2T}\left\Vert w\right\Vert ^{2}+\max(0,1-y_{i}w^{T}f_{i})$
+\end_inset
+
+ is a convex function.
+ 
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\min_{w}\sum_{i=1}^{T}\frac{\lambda}{2T}\left\Vert w\right\Vert ^{2}+\max(0,1-y_{i}w^{T}f_{i})$
+\end_inset
+
+ is a convex optimization problem.
+\end_layout
+
+\begin_layout Standard
+2.2.3) Prove the valid sub-gradient for EQ5
+\end_layout
+
+\begin_layout Standard
+EQ5
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+l_{t}(w)=\frac{\lambda}{2T}\left\Vert w\right\Vert ^{2}+\max(0,1-y_{t}w^{T}f_{t})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+if 
+\begin_inset Formula $1-y_{t}w^{T}f_{t}>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+l_{t}(w)=\frac{\lambda}{2T}\left\Vert w\right\Vert ^{2}+1-y_{t}w^{T}f_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangledown l_{t}(w)=\frac{\lambda}{T}w-y_{t}f_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+else
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+l_{t}(w)=\frac{\lambda}{2T}\left\Vert w\right\Vert ^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangledown l_{t}(w)=\frac{\lambda}{T}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So together:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{\triangledown l_{t}(w)=\begin{cases}
+\frac{\lambda}{T}w-y_{t}f_{t} & 1-y_{t}w^{T}f_{t}>0\\
+\frac{\lambda}{T}w & otherwise
+\end{cases}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.3) Implementation
+\end_layout
+
+\begin_layout Standard
+Datasets Selected:
+\end_layout
+
+\begin_layout Standard
+A) Ground: ID = 1200, Number of Points = 67161
+\end_layout
+
+\begin_layout Standard
+B) Facade: ID = 1400, Number of Points = 12092
+\end_layout
+
+\begin_layout Standard
+Total Misclassification Error: 417 Points mislabeled, or 0.53% of the total
+ data.
+\end_layout
+
+\begin_layout Standard
+Ground Point Misclassification Error: 4 Points mislabeled or 0.01% of the
+ ground data.
+\end_layout
+
+\begin_layout Standard
+Facade Point Misclassification Error: 413 Points mislabeled or 3.42% of the
+ facade data.
+\end_layout
+
+\begin_layout Standard
+Both sets were classified pretty well, this is probably due to the fact
+ that both the ground and the facade are flat and easy to identify, with
+ the ground being easier than the facade.
+\end_layout
+
+\begin_layout Standard
+SVM went through and learned to classify ground and facade, by going through
+ 67161 ground points, 12092 facade points.
+ Each point has 9 different features associated with it.
+ This entire process took 4.28 seconds.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename online_svm/svm_plot_ground_facade.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

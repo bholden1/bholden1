@@ -1,5 +1,6 @@
 % Input:
-% score_test: column vector of predicted score. Bigger score implies higher confidence in predicting the trajectory will succeed.  
+% score_test: column vector of predicted score. 
+%   Bigger score implies higher confidence in predicting the trajectory will succeed.  
 % result_test: ground truth result of whether its trajectory would succeed
 % for its corresponding environment. 
 
